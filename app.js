@@ -53,11 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //game board
-// use query selector to pick out the grid element from the HTML
+// use query selector to pick out the grid or result element from the HTML
 const grid = document.querySelector('.grid')
+const resultDisplay = document.querySelector('#result')
 var cardsChosen = []
 var cardsChosenId = []
 var cardsWon = []
+
 
 function createBoard() {
   for(let i = 0; i < cardArray.length; i++) {
@@ -87,6 +89,10 @@ function checkForMatch(){
   }
   cardsChosen = []
   cardsChosenId = []
+  resultDisplay.textContent = cardsWon.length
+  if(cardsWon.length === cardsArray/2){
+    resultDisplay.textContent = 'Congratulations! You found them all'
+  }
 }
 
 //flip card
