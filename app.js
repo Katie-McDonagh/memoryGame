@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //game board
 // use query selector to pick out the grid element from the HTML
 const grid = document.querySelector('.grid')
+var cardsChosen = []
+var cardsChosenId = []
 
 function createBoard() {
   for(let i = 0; i < cardArray.length; i++) {
@@ -62,8 +64,19 @@ function createBoard() {
     card.setAttribute('src', 'images/blank.png')
     card.setAttribute('data-id', i)
     //card.addEventListener('click', flipCard)
-    grid.appendChild(card)
+    grid.appendChild(card) 
   }
+}
+
+// check for a match
+
+//flip card
+
+function flipCard(){
+  var cardId = this.getAttribute('data-id')
+  cardsChosen.push(cardArray[cardId].name)
+  cardsChosenId.push(cardId)
+  this.setAttribute('src', cardsArray[cardId].img)
 }
 
 createBoard()
