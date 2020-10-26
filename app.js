@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ]
 
+  cardArray.sort(() => 0.5 - Math.random())
 
 //game board
 // use query selector to pick out the grid or result element from the HTML
